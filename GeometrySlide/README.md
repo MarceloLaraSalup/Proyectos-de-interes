@@ -1,90 +1,59 @@
-# DashCube 🟨
+# GeometrySlide 
 
-A Geometry Dash-style endless runner built with Python and Pygame.  
-Jump over procedurally generated spike obstacles — the longer you survive, the faster it gets.
-
-![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
-![Pygame](https://img.shields.io/badge/Pygame-2.6-green)
-![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)
+Un juego de esquivar obstáculos inspirado en Geometry Dash.
+Controla un personaje que corre solo y salta sobre pinchos — cuanto más tiempo aguantes, más rápido va.
 
 ---
 
-## Gameplay
+## Cómo jugar
 
-- **Space / ↑ / W** — Jump
-- Avoid the red spikes (1, 2 or 3 at a time)
-- Speed increases the longer you survive
-- Beat your high score!
-
----
-
-## Run locally (Python)
-
-**Requirements:** Python 3.10+
-
-```bash
-pip install -r requirements.txt
-python game.py
-```
+- Pulsa **Espacio** o **↑** para saltar
+- Esquiva los triángulos rojos
+- El juego va acelerando poco a poco
+- Intenta superar tu mejor puntuación
 
 ---
 
-## Run with Docker 🐳
+## Menú principal
 
-### Linux
+Al abrir el juego aparecen tres opciones:
 
-```bash
-# Allow Docker to access your display
-xhost +local:docker
+### 🎨 Apariencia
+Personaliza cómo se ve tu personaje:
+- Elige entre tres formas: **cuadrado**, **círculo** o **triángulo**
+- Elige su color entre 8 opciones disponibles
 
-# Build and run
-docker compose up --build
+### ⚙️ Personalizar
+Cambia cómo se comporta el juego a tu gusto:
+- **Velocidad inicial** — qué tan rápido empieza
+- **Gravedad** — qué tan fuerte cae el personaje
+- **Fuerza de salto** — qué tan alto salta
+- **Aceleración** — qué tan rápido va aumentando la velocidad
+- Si te pasas, hay un botón para volver a los valores originales
 
-# Revoke display access when done
-xhost -local:docker
-```
-
-### Windows (WSL2 or VcXsrv)
-
-1. Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) and launch it with:
-   - Multiple windows ✔
-   - Start no client ✔
-   - **Disable access control ✔**
-
-2. In PowerShell or WSL2:
-```bash
-export DISPLAY=host.docker.internal:0
-docker compose up --build
-```
-
-### macOS (XQuartz)
-
-1. Install [XQuartz](https://www.xquartz.org/)
-2. In XQuartz preferences → Security → enable **"Allow connections from network clients"**
-3. Restart XQuartz, then:
-```bash
-xhost +localhost
-export DISPLAY=:0
-docker compose up --build
-```
+### ▶ Jugar
+Empieza la partida directamente.
 
 ---
 
-## Project structure
+## Teclas durante la partida
 
-```
-dashcube/
-├── game.py              # Game source
-├── requirements.txt     # Python dependencies
-├── Dockerfile           # Container definition
-├── docker-compose.yml   # Easy run command
-├── .gitignore
-└── README.md
-```
+| Tecla | Acción |
+|-------|--------|
+| Espacio / ↑ / W | Saltar |
+| A | Modo automático (el personaje salta solo) |
+| ESC | Volver al menú |
 
 ---
 
-## Built with
+## Cómo ejecutarlo
 
-- [Python 3.12](https://www.python.org/)
-- [Pygame 2.6](https://www.pygame.org/)
+En la terminal: GeometrySlide$ python3 game.py
+
+Necesitas tener **Python 3** instalado en tu equipo.
+
+---
+
+## Créditos
+
+Desarrollado por **Marcelo Lara** como proyecto personal.
