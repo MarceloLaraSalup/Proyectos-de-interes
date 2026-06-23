@@ -6,21 +6,21 @@
 const CACHE_NAME = 'calorie-tracker-v1';
 
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/css/base.css',
-  '/css/components.css',
-  '/js/store.js',
-  '/js/ui.js',
-  '/js/fooddb.js',
-  '/js/widgets.js',
-  '/js/app.js',
-  '/widgets/calories/widget.js',
-  '/widgets/meals/widget.js',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/widgets/history/widget.js',
+  '/Proyectos-de-interes/QuickFit/',
+  '/Proyectos-de-interes/QuickFit/index.html',
+  '/Proyectos-de-interes/QuickFit/css/base.css',
+  '/Proyectos-de-interes/QuickFit/css/components.css',
+  '/Proyectos-de-interes/QuickFit/js/store.js',
+  '/Proyectos-de-interes/QuickFit/js/ui.js',
+  '/Proyectos-de-interes/QuickFit/js/fooddb.js',
+  '/Proyectos-de-interes/QuickFit/js/widgets.js',
+  '/Proyectos-de-interes/QuickFit/js/app.js',
+  '/Proyectos-de-interes/QuickFit/widgets/calories/widget.js',
+  '/Proyectos-de-interes/QuickFit/widgets/meals/widget.js',
+  '/Proyectos-de-interes/QuickFit/widgets/history/widget.js',
+  '/Proyectos-de-interes/QuickFit/manifest.json',
+  '/Proyectos-de-interes/QuickFit/icons/icon-192.png',
+  '/Proyectos-de-interes/QuickFit/icons/icon-512.png',
 ];
 
 // Instalar: cachear todos los assets

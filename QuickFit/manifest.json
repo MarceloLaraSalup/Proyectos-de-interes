@@ -2,7 +2,7 @@
   "name": "Calorie Tracker",
   "short_name": "Calorías",
   "description": "Seguimiento personal de calorías y comidas",
-  "start_url": "/",
+  "start_url": "/Proyectos-de-interes/QuickFit/index.html",
   "display": "standalone",
   "background_color": "#0f0f10",
   "theme_color": "#0f0f10",
