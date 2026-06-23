@@ -1,0 +1,17 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (si en el futuro añades build tools)
+node_modules/
+dist/
+.env
+
+# Scripts de utilidad que no van al repo
+icons/generate_icons.py

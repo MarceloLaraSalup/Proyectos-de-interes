@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0f0f10"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Calorías"/>
+  <title>Calorie Tracker</title>
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+</head>
+<body>
+
+  <!-- ══ MAIN VIEW ══ -->
+  <div class="view open" id="viewMain">
+    <div class="nav">
+      <span class="nav-title">Hoy</span>
+      <button class="nav-btn" onclick="showView('viewSettings')">⚙️</button>
+    </div>
+    <div class="scroll-area">
+      <!-- Los widgets se inyectan aquí por js/widgets.js -->
+      <div id="widgetsContainer"></div>
+    </div>
+  </div>
+
+  <!-- ══ SETTINGS VIEW ══ -->
+  <div class="view" id="viewSettings">
+    <div class="nav">
+      <button class="nav-btn" onclick="showView('viewMain')" style="font-size:15px">← Volver</button>
+      <span class="nav-title">Ajustes</span>
+      <span style="width:44px"></span>
+    </div>
+    <div style="flex:1;overflow-y:auto">
+      <div class="settings-section">Widgets</div>
+      <div id="widgetToggles"></div>
+
+      <div class="settings-section" style="margin-top:8px">Objetivo</div>
+      <div class="settings-row">
+        <div class="row-left"><div class="row-icon">🎯</div><span>Objetivo diario</span></div>
+        <span id="goalDisplay" style="color:#888;font-size:14px">2000 kcal</span>
+      </div>
+
+      <div class="settings-section" style="margin-top:8px">Alimentos</div>
+      <div class="settings-row tappable" onclick="showView('viewFoodDB')">
+        <div class="row-left"><div class="row-icon">🥗</div><span>Base de datos</span></div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span id="dbCount" style="color:#666;font-size:13px">0 alimentos</span>
+          <span class="chevron-right">›</span>
+        </div>
+      </div>
+
+      <div class="settings-section" style="margin-top:8px">Datos</div>
+      <button class="btn-danger" onclick="confirmReset()">🗑 Borrar todo</button>
+    </div>
+  </div>
+
+  <!-- ══ FOOD DB VIEW ══ -->
+  <div class="view" id="viewFoodDB">
+    <div class="nav">
+      <button class="nav-btn" onclick="showView('viewSettings')" style="font-size:15px">← Ajustes</button>
+      <span class="nav-title">Mis alimentos</span>
+      <span style="width:44px"></span>
+    </div>
+    <div class="db-search-wrap">
+      <input class="db-search" type="text" placeholder="Buscar alimento..." oninput="renderDB(this.value)" id="dbSearchInput"/>
+    </div>
+    <div class="db-list" id="dbList"></div>
+    <button class="fab" onclick="openNewFoodModal()">＋</button>
+  </div>
+
+  <!-- ══ MODALES ══ -->
+
+  <!-- Nuevo alimento en BD -->
+  <div class="overlay" id="newFoodOverlay" onclick="overlayClose(event,'newFoodOverlay')">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title">Nuevo alimento</div>
+      <div class="sheet-sub">Se guardará en tu base de datos</div>
+      <div class="sheet-field">
+        <label>Nombre</label>
+        <input type="text" id="nfName" placeholder="ej. Pechuga de pollo"/>
+      </div>
+      <div class="sheet-field">
+        <label>Calorías por 100g</label>
+        <input type="number" id="nfKcal" placeholder="ej. 165" inputmode="numeric" min="0"/>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-cancel" onclick="closeModal('newFoodOverlay')">Cancelar</button>
+        <button class="btn-save" onclick="saveNewFood()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buscar y añadir alimento a comida -->
+  <div class="overlay" id="addFoodOverlay" onclick="overlayClose(event,'addFoodOverlay')">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title">Añadir alimento</div>
+      <div class="sheet-sub" id="addFoodSub">Desayuno</div>
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="foodSearch" placeholder="Buscar en mis alimentos..." oninput="renderFoodSearch(this.value)" autocomplete="off"/>
+      </div>
+      <div class="search-results" id="searchResults">
+        <div class="no-results">Empieza a escribir para buscar</div>
+      </div>
+      <div class="sheet-field">
+        <label>Gramos consumidos</label>
+        <input type="number" id="foodGrams" placeholder="ej. 150" inputmode="numeric" min="0" oninput="updatePreview()"/>
+      </div>
+      <div class="grams-preview" id="gramsPreview" style="display:none">
+        <span class="grams-preview-text" id="previewText">—</span>
+        <span class="grams-preview-kcal" id="previewKcal">0 kcal</span>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-cancel" onclick="closeModal('addFoodOverlay')">Cancelar</button>
+        <button class="btn-save" onclick="addFoodToMeal()">Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo diario -->
+  <div class="overlay" id="goalOverlay" onclick="overlayClose(event,'goalOverlay')">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title">Objetivo diario</div>
+      <div class="sheet-sub">Establece tus calorías objetivo</div>
+      <div class="sheet-field">
+        <label>Calorías objetivo</label>
+        <input type="number" id="goalInput" placeholder="ej. 2000" inputmode="numeric" min="1"/>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-cancel" onclick="closeModal('goalOverlay')">Cancelar</button>
+        <button class="btn-save" onclick="saveGoal()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/fooddb.js"></script>
+  <script src="widgets/calories/widget.js"></script>
+  <script src="widgets/meals/widget.js"></script>
+  <script src="widgets/history/widget.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
