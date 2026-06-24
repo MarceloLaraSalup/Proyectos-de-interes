@@ -149,8 +149,9 @@ function addFoodToMeal() {
   const sel   = MealsWidget._selectedFood;
   const grams = parseFloat(document.getElementById('foodGrams').value);
   if (!sel || !grams || grams <= 0) return;
-  const kcal = Math.round(sel.kcal100 * grams / 100);
-  S.meals[MealsWidget._currentMeal].push({ name: sel.name, grams, kcal });
+  const kcal    = Math.round(sel.kcal100 * grams / 100);
+  const protein = Math.round((sel.protein100 || 0) * grams / 100 * 10) / 10;
+  S.meals[MealsWidget._currentMeal].push({ name: sel.name, grams, kcal, protein });
   saveState();
   MealsWidget.update();
   if (window.CalorieWidget) CalorieWidget.update();

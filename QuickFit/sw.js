@@ -10,6 +10,7 @@ const ASSETS = [
   '/Proyectos-de-interes/QuickFit/index.html',
   '/Proyectos-de-interes/QuickFit/css/base.css',
   '/Proyectos-de-interes/QuickFit/css/components.css',
+  '/Proyectos-de-interes/QuickFit/widgets/protein/widget.js',
   '/Proyectos-de-interes/QuickFit/js/store.js',
   '/Proyectos-de-interes/QuickFit/js/ui.js',
   '/Proyectos-de-interes/QuickFit/js/fooddb.js',

@@ -85,10 +85,16 @@
         <label>Nombre</label>
         <input type="text" id="nfName" placeholder="ej. Pechuga de pollo"/>
       </div>
-      <div class="sheet-field">
-        <label>Calorías por 100g</label>
-        <input type="number" id="nfKcal" placeholder="ej. 165" inputmode="numeric" min="0"/>
-      </div>
+      <div class="sheet-row">
+  <div class="sheet-field">
+    <label>Calorías / 100g</label>
+    <input type="number" id="nfKcal" placeholder="ej. 165" inputmode="numeric" min="0"/>
+  </div>
+  <div class="sheet-field">
+    <label>Proteínas / 100g</label>
+    <input type="number" id="nfProtein" placeholder="ej. 31" inputmode="decimal" min="0" step="0.1"/>
+  </div>
+</div> 
       <div class="sheet-actions">
         <button class="btn-cancel" onclick="closeModal('newFoodOverlay')">Cancelar</button>
         <button class="btn-save" onclick="saveNewFood()">Guardar</button>
@@ -148,6 +154,7 @@
   <script src="widgets/calories/widget.js"></script>
   <script src="widgets/meals/widget.js"></script>
   <script src="widgets/history/widget.js"></script>
+  <script src="widgets/protein/widget.js"></script>
   <script src="js/widgets.js"></script>
   <script src="js/app.js"></script>
   <script>

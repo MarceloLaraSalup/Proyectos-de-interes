@@ -7,6 +7,8 @@ const STORAGE_KEY = 'calApp_v1';
 
 const DEFAULT_STATE = {
   goal: 2000,
+  proteinGoal: 150,
+  widgetProtein: true,
   widgetCalorie: true,
   widgetMeals: true,
   widgetHistory: true,
@@ -18,7 +20,8 @@ const DEFAULT_STATE = {
     snacks: []
   },
   foods: [],
-  history: []
+  history: [],
+  widgetOrder: []
 };
 
 let S = null;
@@ -38,6 +41,10 @@ function loadState() {
     if (S.widgetCalorie === undefined) S.widgetCalorie = true;
     if (S.widgetMeals   === undefined) S.widgetMeals   = true;
     if (S.widgetHistory === undefined) S.widgetHistory = true;
+    if (S.proteinGoal  === undefined) S.proteinGoal  = 0;
+    if (S.widgetProtein === undefined) S.widgetProtein = true;
+    if (!S.widgetOrder) S.widgetOrder = [];
+    
   } catch (e) {
     console.warn('Error cargando estado.', e);
     S = JSON.parse(JSON.stringify(DEFAULT_STATE));

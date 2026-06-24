@@ -45,16 +45,18 @@ function renderDB(query) {
 function openNewFoodModal() {
   document.getElementById('nfName').value = '';
   document.getElementById('nfKcal').value = '';
+  document.getElementById('nfProtein').value = '';
   document.getElementById('newFoodOverlay').classList.add('open');
   setTimeout(() => document.getElementById('nfName').focus(), 100);
 }
 
 function saveNewFood() {
-  const name    = document.getElementById('nfName').value.trim();
-  const kcal100 = parseInt(document.getElementById('nfKcal').value);
+  const name     = document.getElementById('nfName').value.trim();
+  const kcal100  = parseInt(document.getElementById('nfKcal').value);
+  const protein100 = parseFloat(document.getElementById('nfProtein').value) || 0;
   if (!name || !kcal100 || kcal100 <= 0) return;
 
-  S.foods.push({ name, kcal100 });
+  S.foods.push({ name, kcal100, protein100 });
   S.foods.sort((a, b) => a.name.localeCompare(b.name, 'es'));
   saveState();
   renderDB('');
