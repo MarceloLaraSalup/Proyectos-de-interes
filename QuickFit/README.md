@@ -1,18 +1,20 @@
+'''
   ___               _                   ___ 
  / _ \ _   _  ___  | |__   __ _  ___ __|__ \
 | | | | | | |/ _ \ | '_ \ / _` |/ __/ _ \/ /
 | |_| | |_| |  __/ | | | | (_| | (_|  __/_| 
  \__\_\\__,_|\___| |_| |_|\__,_|\___\___(_) 
-
+'''
 App personal de seguimiento de calorías. Funciona como PWA — se puede instalar directamente en Android desde Chrome, sin Play Store.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+'''
  _____                 _                       
 |  ___|   _ _ __   ___(_) ___  _ __   ___  ___ 
 | |_ | | | | '_ \ / __| |/ _ \| '_ \ / _ \/ __|
 |  _|| |_| | | | | (__| | (_) | | | |  __/\__ \
 |_|   \__,_|_| |_|\___|_|\___/|_| |_|\___||___/
-
+'''
 - **Medidor de calorías** — muestra el consumo diario con colores (verde → amarillo → rojo)
 - **Secciones de comida** — Desayuno, Comida, Cena y Snacks
 - **Base de datos local** — añade tus alimentos con kcal/100g y búscalos al registrar
@@ -21,23 +23,24 @@ App personal de seguimiento de calorías. Funciona como PWA — se puede instala
 - **100% offline** — todo se guarda en localStorage, sin servidor ni login
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+'''
  _           _        _            _             
 (_)_ __  ___| |_ __ _| | __ _  ___(_) ___  _ __  
 | | '_ \/ __| __/ _` | |/ _` |/ __| |/ _ \| '_ \ 
 | | | | \__ \ || (_| | | (_| | (__| | (_) | | | |
 |_|_| |_|___/\__\__,_|_|\__,_|\___|_|\___/|_| |_|
-
+'''
 1. Abre Chrome en tu Android y navega a la URL
 2. Pulsa el menú (⋮) → **"Añadir a pantalla de inicio"**
 3. La app se instala como cualquier app nativa
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-           _                   _                   
+'''           _                   _                   
   ___  ___| |_ _ __ _   _  ___| |_ _   _ _ __ __ _ 
  / _ \/ __| __| '__| | | |/ __| __| | | | '__/ _` |
 |  __/\__ \ |_| |  | |_| | (__| |_| |_| | | | (_| |
  \___||___/\__|_|   \__,_|\___|\__|\__,_|_|  \__,_|
-
+'''
 !!! Esta estuctura puede cambiar porque está en fase de prueba y los widjets se añaden y borran constantemente !!!
 
 ```
@@ -64,6 +67,7 @@ calorie-tracker/
     └── icon-512.png
 ```
 ------------------------------------------------------------------------------------------------------------------------------------------
+'''
                           _                   _      
   ___ _ __ ___  __ _  ___(_) ___  _ __     __| | ___ 
  / __| '__/ _ \/ _` |/ __| |/ _ \| '_ \   / _` |/ _ \
@@ -76,7 +80,7 @@ __      _(_) __| | __ _  ___| |_ ___
  \ V  V /| | (_| | (_| |  __/ |_\__ \
   \_/\_/ |_|\__,_|\__, |\___|\__|___/
                   |___/              
-                  
+'''
 1. Crea la carpeta `widgets/mi-widget/widget.js`
 2. Define el objeto siguiendo esta estructura:
 
