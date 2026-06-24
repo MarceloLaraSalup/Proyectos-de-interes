@@ -21,7 +21,11 @@ const DEFAULT_STATE = {
   },
   foods: [],
   history: [],
-  widgetOrder: []
+  widgetOrder: [],
+  height: null,
+  weight: null,
+  weightLog: [],
+  widgetWeight: true,
 };
 
 let S = null;
@@ -44,6 +48,10 @@ function loadState() {
     if (S.proteinGoal  === undefined) S.proteinGoal  = 0;
     if (S.widgetProtein === undefined) S.widgetProtein = true;
     if (!S.widgetOrder) S.widgetOrder = [];
+    if (S.height      === undefined) S.height      = null;
+    if (S.weight      === undefined) S.weight      = null;
+    if (!S.weightLog)                S.weightLog   = [];
+    if (S.widgetWeight === undefined) S.widgetWeight = true;
     
   } catch (e) {
     console.warn('Error cargando estado.', e);

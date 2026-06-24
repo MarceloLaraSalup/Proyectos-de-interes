@@ -69,6 +69,47 @@ function openGoalModal() {
   setTimeout(() => document.getElementById('goalInput').focus(), 100);
 }
 
+function exportData() {
+  const json     = JSON.stringify(S, null, 2);
+  const blob     = new Blob([json], { type: 'application/json' });
+  const url      = URL.createObjectURL(blob);
+  const a        = document.createElement('a');
+  const date     = new Date().toISOString().slice(0, 10);
+  a.href         = url;
+  a.download     = `quickfit-backup-${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      // Validación mínima
+      if (!data.meals || !data.foods) {
+        alert('El archivo no parece un backup válido de QuickFit.');
+        return;
+      }
+      if (confirm('¿Importar estos datos? Se sobreescribirá todo lo actual.')) {
+        S = data;
+        saveState();
+        renderWidgets();
+        renderWidgetToggles();
+        updateSettingsMeta();
+        showView('viewMain');
+      }
+    } catch {
+      alert('Error leyendo el archivo. Asegúrate de que es un JSON válido.');
+    }
+  };
+  reader.readAsText(file);
+  // Reset input para poder importar el mismo archivo dos veces
+  event.target.value = '';
+}
+
 document.getElementById('goalInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') saveGoal();
 });

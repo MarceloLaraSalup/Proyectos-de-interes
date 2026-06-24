@@ -19,6 +19,7 @@ const ASSETS = [
   '/Proyectos-de-interes/QuickFit/widgets/calories/widget.js',
   '/Proyectos-de-interes/QuickFit/widgets/meals/widget.js',
   '/Proyectos-de-interes/QuickFit/widgets/history/widget.js',
+  '/Proyectos-de-interes/QuickFit/widgets/weight/widget.js',
   '/Proyectos-de-interes/QuickFit/manifest.json',
   '/Proyectos-de-interes/QuickFit/icons/icon-192.png',
   '/Proyectos-de-interes/QuickFit/icons/icon-512.png',

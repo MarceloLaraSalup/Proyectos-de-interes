@@ -3,6 +3,7 @@ const WIDGET_REGISTRY = [
   window.MealsWidget,
   window.ProteinWidget,
   window.HistoryWidget,
+  window.WeightWidget,
 ];
 
 let _editMode = false;
