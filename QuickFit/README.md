@@ -1,42 +1,44 @@
-# 🔥 Calorie Tracker
+  ___               _                   ___ 
+ / _ \ _   _  ___  | |__   __ _  ___ __|__ \
+| | | | | | |/ _ \ | '_ \ / _` |/ __/ _ \/ /
+| |_| | |_| |  __/ | | | | (_| | (_|  __/_| 
+ \__\_\\__,_|\___| |_| |_|\__,_|\___\___(_) 
 
 App personal de seguimiento de calorías. Funciona como PWA — se puede instalar directamente en Android desde Chrome, sin Play Store.
 
-## ✨ Funcionalidades
+------------------------------------------------------------------------------------------------------------------------------------------
+ _____                 _                       
+|  ___|   _ _ __   ___(_) ___  _ __   ___  ___ 
+| |_ | | | | '_ \ / __| |/ _ \| '_ \ / _ \/ __|
+|  _|| |_| | | | | (__| | (_) | | | |  __/\__ \
+|_|   \__,_|_| |_|\___|_|\___/|_| |_|\___||___/
 
-- **Velocímetro de calorías** — muestra el consumo diario con colores (verde → amarillo → rojo)
+- **Medidor de calorías** — muestra el consumo diario con colores (verde → amarillo → rojo)
 - **Secciones de comida** — Desayuno, Comida, Cena y Snacks
 - **Base de datos local** — añade tus alimentos con kcal/100g y búscalos al registrar
 - **Cálculo automático** — introduce los gramos y calcula solo
-- **Widgets modulares** — activa/desactiva cada sección desde Ajustes
+- **Widgets modulares** — activa/desactiva cada sección desde Ajustes y crea los widgets que se ajusten a ti
 - **100% offline** — todo se guarda en localStorage, sin servidor ni login
 
----
+------------------------------------------------------------------------------------------------------------------------------------------
+ _           _        _            _             
+(_)_ __  ___| |_ __ _| | __ _  ___(_) ___  _ __  
+| | '_ \/ __| __/ _` | |/ _` |/ __| |/ _ \| '_ \ 
+| | | | \__ \ || (_| | | (_| | (__| | (_) | | | |
+|_|_| |_|___/\__\__,_|_|\__,_|\___|_|\___/|_| |_|
 
-## 🚀 Instalación en Android (Google Pixel / Chrome)
+1. Abre Chrome en tu Android y navega a la URL
+2. Pulsa el menú (⋮) → **"Añadir a pantalla de inicio"**
+3. La app se instala como cualquier app nativa
 
-1. Sube el proyecto a GitHub Pages, Netlify o cualquier hosting HTTPS
-2. Abre Chrome en tu Android y navega a la URL
-3. Pulsa el menú (⋮) → **"Añadir a pantalla de inicio"**
-4. La app se instala como cualquier app nativa
+------------------------------------------------------------------------------------------------------------------------------------------
+           _                   _                   
+  ___  ___| |_ _ __ _   _  ___| |_ _   _ _ __ __ _ 
+ / _ \/ __| __| '__| | | |/ __| __| | | | '__/ _` |
+|  __/\__ \ |_| |  | |_| | (__| |_| |_| | | | (_| |
+ \___||___/\__|_|   \__,_|\___|\__|\__,_|_|  \__,_|
 
-> ⚠️ El Service Worker requiere HTTPS. En local usa `localhost` que también funciona.
-
-### Probar en local
-
-```bash
-# Opción A: Python (sin instalar nada)
-cd calorie-tracker
-python3 -m http.server 8080
-# Abre http://localhost:8080
-
-# Opción B: Node
-npx serve .
-```
-
----
-
-## 📁 Estructura del proyecto
+!!! Esta estuctura puede cambiar porque está en fase de prueba y los widjets se añaden y borran constantemente !!!
 
 ```
 calorie-tracker/
@@ -61,11 +63,20 @@ calorie-tracker/
     ├── icon-192.png
     └── icon-512.png
 ```
-
----
-
-## ➕ Añadir un nuevo widget
-
+------------------------------------------------------------------------------------------------------------------------------------------
+                          _                   _      
+  ___ _ __ ___  __ _  ___(_) ___  _ __     __| | ___ 
+ / __| '__/ _ \/ _` |/ __| |/ _ \| '_ \   / _` |/ _ \
+| (__| | |  __/ (_| | (__| | (_) | | | | | (_| |  __/
+ \___|_|  \___|\__,_|\___|_|\___/|_| |_|  \__,_|\___|
+                                                     
+          _     _            _       
+__      _(_) __| | __ _  ___| |_ ___ 
+\ \ /\ / / |/ _` |/ _` |/ _ \ __/ __|
+ \ V  V /| | (_| | (_| |  __/ |_\__ \
+  \_/\_/ |_|\__,_|\__, |\___|\__|___/
+                  |___/              
+                  
 1. Crea la carpeta `widgets/mi-widget/widget.js`
 2. Define el objeto siguiendo esta estructura:
 
@@ -103,18 +114,4 @@ const WIDGET_REGISTRY = [
   window.MiWidget,  // ← aquí
 ];
 ```
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Macros (proteínas, carbohidratos, grasas)
-- [ ] Historial por días
-- [ ] Widget de agua
-- [ ] Exportar datos como JSON
-
----
-
-## 📄 Licencia
-
-MIT — úsalo y modifícalo libremente.
+------------------------------------------------------------------------------------------------------------------------------------------
